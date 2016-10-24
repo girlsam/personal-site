@@ -1,0 +1,18 @@
+/*=====================
+Variables
+=====================*/
+
+
+$header-font: 'Bree Serif', Arial, sans-serif;
+$body-font: 'Crete Round', Arial, sans-serif;
+
+$primary-font-color: #0097a7;
+$content-font-color: #212121;
+
+.nav-name
+  @font-face {
+    font-family: $header-font;
+    src: url(https://fonts.googleapis.com/css?family=Bree+Serif);
+    font-size: $font-weight
+  }
+  font-family: $header-font
