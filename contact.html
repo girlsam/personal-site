@@ -3,71 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title>Sam Goldsmith's Portfolio</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Crete+Round" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="social-icons/css/style.css">
   </head>
   <body>
   <!-- navigation -->
-  <nav>
-    <div class="nav-wrapper cyan darken-3">
-      <a href="index.html" class="brand-logo nav-name">Sam Goldsmith - Web Developer</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-      </ul>
-    </div>
-  </nav>
-  <!-- main -->
-  <main>
-    <div class="row">
-      <article class="col s12 m6">
-        <h5 class="body-header">Send Me an Email</h5>
-        <hr>
-      <!-- contact form -->
-        <div class="row">
-          <form class="col s12" method="POST" action="https://formspree.io/samggold@gmail.com">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" type="email" class="validate" placeholder="Your Email">
-                <label for="email">Email Address</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea id="bodyText" type="textarea" class="materialize-textarea" name="message"></textarea>
-                <label for="email">Your Message</label>
-              </div>
-            </div>
-            <div class="row send-email-button">
-              <button class="btn waves-effect waves-light cyan darken-3" type="submit">Send Email
-                <i class="material-icons right">email</i>
-              </button>
-            </div>
-          </form>
+    <section class="navigation">
+      <div class="nav-container">
+        <div class="brand">
+          <a href="#!">Sam Goldsmith</a>
         </div>
-      </article>
-      <!-- social links -->
-      <article class="col s12 m6">
-        <h5 class="body-header">Find Me Online</h5>
-        <hr>
-          <div><a class="icon-link round linkedin fill"><i class="fa fa-linkedin"></i></a></div>
-          <div><a class="icon-link round github fill"><i class="fa fa-github"></i></a></div>
-      </article>
-    </div>
-  </main>
+        <nav>
+          <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+          <ul class="nav-list">
+            <li>
+              <a href="about.html">Portfolio</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <!-- main -->
+    <main>
+      <div class="row">
+        <article class="col s12 m6">
+          <h5 class="body-header">Send Me an Email</h5>
+          <hr>
+        <!-- contact form -->
+        <!-- social links -->
+        <article class="col s12 m6">
+          <h5 class="body-header">Find Me Online</h5>
+          <hr>
+            <div><a class="icon-link round linkedin fill"><i class="fa fa-linkedin"></i></a></div>
+            <div><a class="icon-link round github fill"><i class="fa fa-github"></i></a></div>
+        </article>
+      </div>
+    </main>
   <!-- js scripts -->
   <script src="js/jquery-2.1.4.min.js"></script>
   <script src="js/materialize.min.js"></script>

@@ -3,34 +3,102 @@
   <head>
     <meta charset="utf-8">
     <title>Sam Goldsmith's Portfolio</title>
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Crete+Round" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="social-icons/css/style.css">
     <link type="text/css" rel="stylesheet" href="css/main.css">
   </head>
   <body>
+  <script language="javascript">
+    function toggle_visibility(id) {
+      var e = document.getElementById(id);
+      if(e.style.display == 'block') {
+        e.style.display = 'none';
+      } else {
+        e.style.display = 'block';
+      }
+    }
+  </script>
+  <header class="parent">
+    <div class="child">
+      <div class="header-name">Sam Goldsmith</div>
+      <div class="header-title">Web Developer</div>
+    </div>
+  </header>
   <!-- navigation -->
-  <nav>
-    <div class="nav-wrapper cyan darken-3">
-      <a href="index.html" class="brand-logo nav-name">Sam Goldsmith - Web Developer</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
+  <div class="flex">
+    <a href="#0" class="bttn" onclick="toggle_visibility('about');">About</a>
+  </div>
+  <p class="content" id="about">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <div class="flex">
+    <div class="portfolio">
+      <div class="flex">
+        <a href="#0" class="bttn slider" id="portfolio" onclick="toggle_visibility('timeline');">Portfolio</a>
+      </div>
+    </div>
+  </div>
+  <section class="block-content l-block-spacing slide" id="timeline">
+    <div class="l-contained">
+      <ul class="timeline-list">
+        <li>
+          <div class="content">
+            <h3>Election Speculation</h3>
+            <p>August 2016</p>
+            <p>
+              Motivated by a passion for politics, I built an interactive choropleth map that projects state polling data for the 2016 presidential election. Technologies utilized: Third Party API Integrations (Mapbox API, Pollyvote), Leaflet.js, and Materialize. Note: The deployed site is no longer active due to polling data inactivity.
+            </p>
+            <p>&nbsp;<span><a href="http://github.com/girlsam" target="_blank"><i class="fa fa-github"></i></a><a href="https://girlsam.github.io/election-speculation/src/" target="_blank">&nbsp;<i class="fa fa-link"></i></a></span></p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <h3>Beerleague.me</h3>
+            <p>September 2016</p>
+            <p>
+              This is an Android application designed to facilitate coordination of beer league sports. As a collaboration, we took a SOA approach and completely separated client and server. I focused on the client-side, utilizing Mobile Angular UI (Angular 1).
+            </p>
+            <p>&nbsp;<span><a href="http://github.com/girlsam/beerleagueme" target="_blank"><i class="fa fa-github"></i></a><a href="http://bit.ly/beerleagueme" target="_blank">&nbsp;<i class="fa fa-link"></i></a></span></p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <h3>Stranger Events</h3>
+            <p>October 2016</p>
+            <p>
+            Inspired by the Netflix series "Stranger Things", "Stranger Events" is a responsive, front-to-back CRUD application. On the backend, it utilizes a PostgreSQL database, an API built using Express.js and Node.js, and Nunjucks for server-side templating. On the front-end, it utilizes Bootstrap for responsive design, and Sass for style customization.
+            </p>
+            <p>&nbsp;<span><a href="https://github.com/girlsam/events-crud" target="_blank"><i class="fa fa-github"></i></a><a href="https://strangerevents.herokuapp.com/" target="_blank">&nbsp;<i class="fa fa-link"></i></a></span></p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <h3>cReddit</h3>
+            <p>October 2016</p>
+            <p>
+              cReddit is a reddit clone that contains similar functionality as reddit. It has posts, comments fields, searching and filtering, and form validations. It utilizes AngularJS 1.5, Moment.js and Materialize.
+            </p>
+            <p>&nbsp;<span><a href="https://github.com/girlsam/reddit-clone" target="_blank"><i class="fa fa-github"></i></a><a href="https://girlsam.github.io/reddit-clone/" target="_blank">&nbsp;<i class="fa fa-link"></i></a></span></p>
+          </div>
+        </li>
       </ul>
     </div>
-  </nav>
+  </section>
+  <br>
+  <br>
+  <div class="flex">
+    <a href="#0" class="bttn" onclick="toggle_visibility('contact');">Contact</a>
+  </div>
+  <div class="icon-container slide" id="contact">
+    <a href="mailto:samggold@gmail.com"><i class="fa fa-envelope-o fa-2x fa-animated"></i></a>
+    <a href="http://linkedin.com/in/samgoldsmith" target="_blank"><i class="fa fa-linkedin fa-2x fa-animated"></i></a>
+    <a href="http://github.com/girlsam" target="_blank"><i class="fa fa-github fa-2x fa-animated"></i></a>
+    <a href="http://twitter.com/samagold" target="_blank"><i class="fa fa-twitter fa-2x fa-animated"></i></a>
+  </div>
   <!-- js scripts -->
   <script src="js/jquery-2.1.4.min.js"></script>
-  <script src="js/materialize.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/timeline.js"></script>
   </body>
 </html>
