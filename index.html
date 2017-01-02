@@ -1,22 +1,118 @@
 <!DOCTYPE html>
-<html ng-app="redditCloneApp">
+<html>
   <head>
     <meta charset="utf-8">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Online Portfolio for Sam Goldsmith - Web Developer">
+    <meta property="og:description" content="An online view of Sam Goldsmith's portfolio and methods of contact. Check out personal projects built using NEAP stack technologies, as well as ventures into new techologies.">
+    <meta property="og:image" content="https://postimg.org/image/xlfhya3kd">
+    <meta property="og:image:width" content="400"/>
+    <meta property="og:image:height" content="300"/>
+    <meta property="og:url" content="http://samgoldsmith.tech">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Sam Goldsmith's Portfolio</title>
-    <link href="https://fonts.googleapis.com/css?family=Oxygen|Patua+One" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="social-icons/css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <h1>Sam Goldsmith</h1>
-      </div>
+  <script language="javascript">
+    function toggle_visibility(id) {
+      var e = document.getElementById(id);
+      if(e.style.display == 'block') {
+        e.style.display = 'none';
+      } else {
+        e.style.display = 'block';
+      }
+    }
+  </script>
+  <header class="parent">
+    <div class="child">
+      <div class="header-name">Sam Goldsmith</div>
+      <div class="header-title">Web Developer</div>
     </div>
-  <!-- javascript -->
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script type="text/javascript" src="app.js"></script>
+  </header>
+  <!-- navigation -->
+  <div class="flex">
+    <a href="#0" class="bttn" onclick="toggle_visibility('about');">About</a>
+  </div>
+  <p class="content" id="about">
+    Hi, world. I am a JavaScript web developer with a passion for front-end design and functionality. Experienced in NEAP stack technologies (Node.js, Express.js, AngularJS, and PostgreSQL), I have built and collaborated on multiple full-stack applications. When I see a site I love, I can't help but pull up the browser's dev tools and comb over the code for inspiration. While coding is both my passion and my 'happy place', I also enjoy hiking in the summer, skiing in the winter, and football any time of year. I'm constantly updating my portfolio, so check back in or reach out!
+  </p>
+  <div class="flex">
+    <a href="#0" class="bttn slider" id="portfolio" onclick="toggle_visibility('timeline');">Portfolio</a>
+  </div>
+  <section class="block-content l-block-spacing slide" id="timeline">
+    <div class="l-contained">
+      <ul class="timeline-list">
+        <li>
+          <div class="content">
+            <h3>Election Speculation</h3>
+            <p>August 2016</p>
+            <p>
+              Motivated by a passion for politics, I built an interactive choropleth map that projects state polling data for the 2016 presidential election. Technologies utilized: Third Party API Integrations (Mapbox API, Pollyvote), Leaflet.js, and Materialize. Note: The deployed site is no longer fully functional due to polling data inactivity.
+            </p>
+            <p>&nbsp;<span><a href="http://github.com/girlsam" target="_blank"><i class="fa fa-github"></i></a><a href="https://girlsam.github.io/election-speculation/src/" target="_blank">&nbsp;<i class="fa fa-link"></i></a></span></p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <h3>Beerleague.me</h3>
+            <p>September 2016</p>
+            <p>
+              This is an Android application designed to facilitate coordination of beer league sports. As a collaboration, we took a SOA approach and completely separated client and server. I focused on the client-side, utilizing Mobile Angular UI (Angular 1).
+            </p>
+            <p>&nbsp;<span><a href="http://github.com/girlsam/beerleagueme" target="_blank"><i class="fa fa-github"></i></a><a href="http://bit.ly/beerleagueme" target="_blank">&nbsp;<i class="fa fa-link"></i></a></span></p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <h3>Stranger Events</h3>
+            <p>October 2016</p>
+            <p>
+            Inspired by the Netflix series "Stranger Things", "Stranger Events" is a responsive, front-to-back CRUD application. On the backend, it utilizes a PostgreSQL database, an API built using Express.js and Node.js, and Nunjucks for server-side templating. On the front-end, it utilizes Bootstrap for responsive design, and Sass for style customization.
+            </p>
+            <p>&nbsp;<span><a href="https://github.com/girlsam/events-crud" target="_blank"><i class="fa fa-github"></i></a><a href="https://strangerevents.herokuapp.com/" target="_blank">&nbsp;<i class="fa fa-link"></i></a></span></p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <h3>cReddit</h3>
+            <p>October 2016</p>
+            <p>
+              cReddit is a reddit clone that contains similar functionality as reddit. It has posts, comments fields, searching and filtering, and form validations. It utilizes AngularJS 1.5, Moment.js and Materialize.
+            </p>
+            <p>&nbsp;<span><a href="https://github.com/girlsam/reddit-clone" target="_blank"><i class="fa fa-github"></i></a><a href="https://girlsam.github.io/reddit-clone/" target="_blank">&nbsp;<i class="fa fa-link"></i></a></span></p>
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <h3>Newmate</h3>
+            <p>December 2016</p>
+            <p>
+              Newmate is a site that helps roommates find compatible roommates. With 8 to 10,000 people moving to Denver each month, and with rent ever-increasing, Newmate solves the problem of transplants meeting transplants and transplants saving money. For this application, I taught myself React.js to build the front-end UI. I also built a separate API (hosted by Heroku) with Node.js and Express (and a PostgreSQL database). Newmate is a true work in progress, and I'm consistently adding updates to incorporate my initial vision.
+            </p>
+            <p>&nbsp;<span><a href="https://github.com/girlsam/capstone-react" target="_blank"><i class="fa fa-github"></i></a><a href="https://newmate-79b38.firebaseapp.com" target="_blank">&nbsp;<i class="fa fa-link"></i></a></span></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <br>
+  <br>
+  <div class="flex">
+    <a href="#0" class="bttn" onclick="toggle_visibility('contact');">Contact</a>
+  </div>
+  <div class="icon-container slide" id="contact">
+    <a href="mailto:samggold@gmail.com"><i class="fa fa-envelope-o fa-2x fa-animated"></i></a>
+    <a href="http://linkedin.com/in/samgoldsmith" target="_blank"><i class="fa fa-linkedin fa-2x fa-animated"></i></a>
+    <a href="http://github.com/girlsam" target="_blank"><i class="fa fa-github fa-2x fa-animated"></i></a>
+    <a href="http://twitter.com/samagold" target="_blank"><i class="fa fa-twitter fa-2x fa-animated"></i></a>
+  </div>
+  <!-- js scripts -->
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/timeline.js"></script>
   </body>
 </html>
