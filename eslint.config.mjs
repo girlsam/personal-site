@@ -18,6 +18,16 @@ const eslintConfig = defineConfig([
   },
   // Disable stylistic rules that conflict with Prettier. Keep last so it wins.
   prettier,
+  {
+    // Module-augmentation declaration files need empty interfaces and `any` to
+    // merge with upstream library types.
+    files: ["**/*.d.ts"],
+    rules: {
+      "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+    },
+  },
   globalIgnores([".next/**", "out/**", "build/**", "coverage/**", "next-env.d.ts"]),
 ]);
 
