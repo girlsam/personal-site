@@ -36,6 +36,22 @@ The local quality gate — run it before committing; it replaces git hooks. Pure
    - Subject in the imperative ("add", not "added").
    - **No AI attribution** — no `Co-Authored-By` trailers, no "Generated with…" lines; keep messages factual.
 
+4. Print a one-block summary so the result is scannable at a glance:
+
+   ```
+   ## Shipped
+   - Commit:    <type>: <subject> (<short-sha>)
+   - Files:     <N> changed (+<added>/-<removed>)
+   - Format:    pass
+   - Lint:      pass
+   - Typecheck: pass
+   - Tests:     <passed>/<total> · coverage <stmts>%
+   - Build:     pass
+   - Caveats:   <known issues, or "none">
+   ```
+
+   Report what actually happened — if the gate stopped red, say which step failed and skip the commit; never print `pass` for a step that didn't run.
+
 ## Notes
 
 - Don't push here — use the `open-pr` skill to branch, push, and open the PR.
