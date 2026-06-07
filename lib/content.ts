@@ -16,3 +16,16 @@ export const social = {
   github: "https://github.com/girlsam",
   linkedin: "https://www.linkedin.com/in/samgoldsmith",
 } as const;
+
+export const hero = {
+  greeting: "Hi, I'm Sam Goldsmith,",
+  roles: [
+    "Frontend Developer",
+    "Full-Stack Engineer",
+    "Gardener",
+    "Mountain Biker",
+    "National Park Nerd",
+  ],
+  welcome: "Welcome to my little corner of the internet.",
+  cta: { label: "Explore", href: "#experience" },
+} as const;

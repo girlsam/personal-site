@@ -3,9 +3,9 @@ import Home from "./page";
 import { checkA11y } from "@/test/a11y";
 
 describe("Home page", () => {
-  it("renders its content", () => {
+  it("renders the hero", () => {
     render(<Home />);
-    expect(screen.getByText(/hello world/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: /sam goldsmith/i })).toBeInTheDocument();
   });
 
   it("has no accessibility violations", async () => {
