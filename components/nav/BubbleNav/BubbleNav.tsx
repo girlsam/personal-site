@@ -28,24 +28,26 @@ export function BubbleNav() {
           ))}
         </ul>
         <span className="mx-1 h-5 w-px bg-border" aria-hidden="true" />
-        <a
-          href={social.github}
-          aria-label="GitHub"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full p-2 text-muted transition-colors hover:text-foreground"
-        >
-          <GitHubIcon />
-        </a>
-        <a
-          href={social.linkedin}
-          aria-label="LinkedIn"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full p-2 text-muted transition-colors hover:text-foreground"
-        >
-          <LinkedInIcon />
-        </a>
+        <div className="flex items-center gap-0.5 pr-1.5">
+          <a
+            href={social.github}
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full p-1.5 text-muted transition-colors hover:text-foreground"
+          >
+            <GitHubIcon />
+          </a>
+          <a
+            href={social.linkedin}
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full p-1.5 text-muted transition-colors hover:text-foreground"
+          >
+            <LinkedInIcon />
+          </a>
+        </div>
       </nav>
     </header>
   );
