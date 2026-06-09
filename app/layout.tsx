@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { SkipLink } from "@/components/SkipLink/SkipLink";
+
 import { BubbleNav } from "@/components/nav/BubbleNav/BubbleNav";
+import { SkipLink } from "@/components/SkipLink/SkipLink";
 import { site } from "@/lib/content";
 import "./globals.css";
 

@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+
 import { Hero } from "./Hero";
 import { hero } from "@/lib/content";
 import { checkA11y } from "@/test/a11y";

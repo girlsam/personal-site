@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { experience } from "@/lib/content";
-import { checkA11y } from "@/test/a11y";
 
 import { Experience } from "./Experience";
+import { experience } from "@/lib/content";
+import { checkA11y } from "@/test/a11y";
 
 describe("Experience", () => {
   it("renders the section heading", () => {

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { checkA11y } from "@/test/a11y";
 
 import Home from "./page";
+import { checkA11y } from "@/test/a11y";
 
 describe("Home page", () => {
   it("renders the hero and experience sections", () => {
