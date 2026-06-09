@@ -29,3 +29,32 @@ export function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function SpotifyIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...baseProps} {...props}>
+      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0Zm5.5 17.32c-.22.36-.68.47-1.03.25-2.82-1.72-6.36-2.11-10.54-1.16-.4.1-.8-.16-.9-.56-.1-.41.16-.81.57-.91 4.56-1.04 8.48-.59 11.64 1.34.36.22.47.68.26 1.04Zm1.47-3.27c-.28.45-.86.59-1.3.31-3.23-1.98-8.15-2.56-11.96-1.4-.5.15-1.04-.13-1.19-.63-.15-.51.13-1.04.63-1.2 4.36-1.32 9.78-.68 13.49 1.61.44.27.59.86.33 1.31Zm.13-3.4C15.04 8.3 9.1 8.08 5.4 9.2c-.6.18-1.24-.16-1.42-.76-.18-.61.16-1.25.77-1.43 4.25-1.29 10.81-1.04 15.07 1.49.55.32.73 1.03.4 1.58-.32.54-1.03.72-1.58.4Z" />
+    </svg>
+  );
+}
+
+export function ArrowUpRightIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width={20}
+      height={20}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7 17 17 7" />
+      <path d="M9 7h8v8" />
+    </svg>
+  );
+}

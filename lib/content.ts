@@ -65,3 +65,13 @@ export const experience = [
       "Delivered responsive marketing sites and internal tools for small-business clients on tight timelines.",
   },
 ] as const;
+
+// Placeholder narrative — replace with your own.
+export const about = {
+  paragraphs: [
+    "I came to engineering from the humanities — a history and English background that taught me to read closely, write clearly, and care about the person on the other end of the page.",
+    "That throughline shapes how I build: I treat code like writing — structured, revised, and meant to be read — and I think about AI the same way, since it's mostly about saying what you mean.",
+  ],
+  inclusive:
+    "The internet should be for everyone. Accessibility isn't a box I check at the end — it's the whole point.",
+} as const;
