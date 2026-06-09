@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+
 import { BubbleNav } from "./BubbleNav";
 import { nav, social } from "@/lib/content";
 import { checkA11y } from "@/test/a11y";
