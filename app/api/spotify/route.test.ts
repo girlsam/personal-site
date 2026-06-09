@@ -1,10 +1,19 @@
 import { GET } from "./route";
-import { getTrack, isConfigured } from "@/lib/spotify";
+import { getTracks, isConfigured } from "@/lib/spotify";
 
 vi.mock("@/lib/spotify", () => ({
   isConfigured: vi.fn(),
-  getTrack: vi.fn(),
+  getTracks: vi.fn(),
 }));
+
+const track = {
+  isPlaying: false,
+  title: "Song",
+  artist: "Artist",
+  album: "Album",
+  albumImageUrl: null,
+  songUrl: "url",
+};
 
 afterEach(() => {
   vi.resetAllMocks();
@@ -17,24 +26,17 @@ describe("GET /api/spotify", () => {
     expect(res.status).toBe(204);
   });
 
-  it("returns the track as JSON when available", async () => {
+  it("returns the tracks as JSON when available", async () => {
     vi.mocked(isConfigured).mockReturnValue(true);
-    vi.mocked(getTrack).mockResolvedValue({
-      isPlaying: false,
-      title: "Song",
-      artist: "Artist",
-      album: "Album",
-      albumImageUrl: null,
-      songUrl: "url",
-    });
+    vi.mocked(getTracks).mockResolvedValue([track]);
     const res = await GET();
     expect(res.status).toBe(200);
-    await expect(res.json()).resolves.toMatchObject({ title: "Song" });
+    await expect(res.json()).resolves.toHaveLength(1);
   });
 
-  it("returns 204 when there is no track", async () => {
+  it("returns 204 when there are no tracks", async () => {
     vi.mocked(isConfigured).mockReturnValue(true);
-    vi.mocked(getTrack).mockResolvedValue(null);
+    vi.mocked(getTracks).mockResolvedValue([]);
     const res = await GET();
     expect(res.status).toBe(204);
   });

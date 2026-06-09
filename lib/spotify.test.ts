@@ -1,4 +1,4 @@
-import { getTrack, isConfigured, normalizeTrack } from "@/lib/spotify";
+import { getTracks, isConfigured, normalizeTrack } from "@/lib/spotify";
 
 const item = {
   name: "Song",
@@ -14,7 +14,11 @@ function configure() {
 }
 
 function jsonRes(body: unknown, status = 200) {
-  return { ok: status >= 200 && status < 300, status, json: () => Promise.resolve(body) };
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    json: () => Promise.resolve(body),
+  };
 }
 
 afterEach(() => {
@@ -43,12 +47,12 @@ describe("isConfigured", () => {
   });
 });
 
-describe("getTrack", () => {
-  it("returns null when not configured", async () => {
-    expect(await getTrack()).toBeNull();
+describe("getTracks", () => {
+  it("returns an empty array when not configured", async () => {
+    expect(await getTracks()).toEqual([]);
   });
 
-  it("returns the currently playing track", async () => {
+  it("prepends the currently playing track to the recents", async () => {
     configure();
     vi.stubGlobal(
       "fetch",
@@ -56,15 +60,24 @@ describe("getTrack", () => {
         if (url.includes("api/token")) {
           return Promise.resolve(jsonRes({ access_token: "tok" }));
         }
-        return Promise.resolve(jsonRes({ is_playing: true, item }));
+        if (url.includes("currently-playing")) {
+          return Promise.resolve(
+            jsonRes({
+              is_playing: true,
+              item: { ...item, name: "Now", external_urls: { spotify: "now" } },
+            }),
+          );
+        }
+        return Promise.resolve(jsonRes({ items: [{ track: item }] }));
       }),
     );
-    const t = await getTrack();
-    expect(t?.isPlaying).toBe(true);
-    expect(t?.title).toBe("Song");
+    const tracks = await getTracks();
+    expect(tracks[0].isPlaying).toBe(true);
+    expect(tracks[0].title).toBe("Now");
+    expect(tracks).toHaveLength(2);
   });
 
-  it("falls back to the most recently played track", async () => {
+  it("returns recents when nothing is playing", async () => {
     configure();
     vi.stubGlobal(
       "fetch",
@@ -75,11 +88,11 @@ describe("getTrack", () => {
         if (url.includes("currently-playing")) {
           return Promise.resolve(jsonRes(null, 204));
         }
-        return Promise.resolve(jsonRes({ items: [{ track: item }] }));
+        return Promise.resolve(jsonRes({ items: [{ track: item }, { track: item }] }));
       }),
     );
-    const t = await getTrack();
-    expect(t?.isPlaying).toBe(false);
-    expect(t?.title).toBe("Song");
+    const tracks = await getTracks();
+    expect(tracks).toHaveLength(2);
+    expect(tracks[0].isPlaying).toBe(false);
   });
 });

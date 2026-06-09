@@ -1,6 +1,6 @@
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 const NOW_PLAYING_ENDPOINT = "https://api.spotify.com/v1/me/player/currently-playing";
-const RECENTLY_PLAYED_ENDPOINT = "https://api.spotify.com/v1/me/player/recently-played?limit=1";
+const RECENTLY_PLAYED_ENDPOINT = "https://api.spotify.com/v1/me/player/recently-played";
 
 export type Track = {
   isPlaying: boolean;
@@ -63,35 +63,40 @@ async function getAccessToken(): Promise<string> {
 }
 
 /**
- * The current track if something is playing, otherwise the most recently
- * played one. Returns null when not configured or nothing is available.
+ * Recent listening: the currently playing track (if any) followed by the most
+ * recently played ones. Returns an empty array when not configured.
  */
-export async function getTrack(): Promise<Track | null> {
-  if (!isConfigured()) return null;
+export async function getTracks(limit = 8): Promise<Track[]> {
+  if (!isConfigured()) return [];
 
   const token = await getAccessToken();
   const headers = { Authorization: `Bearer ${token}` };
 
+  let nowPlaying: Track | null = null;
   const nowRes = await fetch(NOW_PLAYING_ENDPOINT, { headers, cache: "no-store" });
   if (nowRes.status === 200) {
     const data = (await nowRes.json()) as {
       is_playing?: boolean;
       item?: SpotifyTrackItem | null;
     };
-    if (data.item && data.is_playing) return normalizeTrack(data.item, true);
+    if (data.item && data.is_playing) nowPlaying = normalizeTrack(data.item, true);
   }
 
-  const recentRes = await fetch(RECENTLY_PLAYED_ENDPOINT, {
+  const recentRes = await fetch(`${RECENTLY_PLAYED_ENDPOINT}?limit=${limit}`, {
     headers,
     cache: "no-store",
   });
+  let recent: Track[] = [];
   if (recentRes.ok) {
     const data = (await recentRes.json()) as {
       items?: { track: SpotifyTrackItem }[];
     };
-    const item = data.items?.[0]?.track;
-    if (item) return normalizeTrack(item, false);
+    recent = (data.items ?? []).map((i) => normalizeTrack(i.track, false));
   }
 
-  return null;
+  if (nowPlaying) {
+    const np = nowPlaying;
+    return [np, ...recent.filter((t) => t.songUrl !== np.songUrl)].slice(0, limit);
+  }
+  return recent;
 }

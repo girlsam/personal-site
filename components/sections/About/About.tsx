@@ -1,4 +1,4 @@
-import { NowPlaying } from "@/components/spotify/NowPlaying/NowPlaying";
+import { RecentlyPlayed } from "@/components/spotify/RecentlyPlayed/RecentlyPlayed";
 import { about } from "@/lib/content";
 
 /**
@@ -27,8 +27,7 @@ export function About() {
       </blockquote>
 
       <div className="mt-10">
-        <p className="mb-3 font-mono text-sm text-muted">On my headphones</p>
-        <NowPlaying />
+        <RecentlyPlayed />
       </div>
     </section>
   );
