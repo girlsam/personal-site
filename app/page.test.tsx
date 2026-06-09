@@ -13,11 +13,12 @@ afterEach(() => {
 });
 
 describe("Home page", () => {
-  it("renders the hero, experience, and about sections", () => {
+  it("renders the hero, experience, about, and contact sections", () => {
     render(<Home />);
     expect(screen.getByRole("heading", { level: 1, name: /sam goldsmith/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: /experience/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: /about/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: /contact/i })).toBeInTheDocument();
   });
 
   it("has no accessibility violations", async () => {

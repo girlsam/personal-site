@@ -75,3 +75,10 @@ export const about = {
   inclusive:
     "The internet should be for everyone. Accessibility isn't a box I check at the end — it's the whole point.",
 } as const;
+
+export const contact = {
+  blurb: "Have a project in mind, a question, or just want to say hi? Drop me a line.",
+  formAction: "https://formspree.io/f/xnjyznka",
+  success: "Thanks — your message is on its way. I'll get back to you soon.",
+  error: "Something went wrong. Please try again, or reach me via the links below.",
+} as const;
