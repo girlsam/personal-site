@@ -1,11 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import Home from "./page";
 import { checkA11y } from "@/test/a11y";
 
+import Home from "./page";
+
 describe("Home page", () => {
-  it("renders the hero", () => {
+  it("renders the hero and experience sections", () => {
     render(<Home />);
     expect(screen.getByRole("heading", { level: 1, name: /sam goldsmith/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: /experience/i })).toBeInTheDocument();
   });
 
   it("has no accessibility violations", async () => {
