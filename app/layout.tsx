@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 
+import { Footer } from "@/components/Footer/Footer";
 import { BubbleNav } from "@/components/nav/BubbleNav/BubbleNav";
 import { SkipLink } from "@/components/SkipLink/SkipLink";
 import { site } from "@/lib/content";
@@ -34,6 +35,7 @@ export default function RootLayout({
         <SkipLink />
         <BubbleNav />
         <main id="main">{children}</main>
+        <Footer />
       </body>
     </html>
   );
