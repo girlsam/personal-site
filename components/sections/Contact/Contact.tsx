@@ -25,27 +25,6 @@ export function Contact() {
       <div className="mt-8 max-w-md">
         <ContactForm />
       </div>
-
-      <div className="mt-8 flex items-center gap-3">
-        <a
-          href={social.github}
-          aria-label="GitHub"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full border border-border p-2 text-muted transition-colors hover:border-accent hover:text-foreground"
-        >
-          <GitHubIcon />
-        </a>
-        <a
-          href={social.linkedin}
-          aria-label="LinkedIn"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full border border-border p-2 text-muted transition-colors hover:border-accent hover:text-foreground"
-        >
-          <LinkedInIcon />
-        </a>
-      </div>
     </section>
   );
 }

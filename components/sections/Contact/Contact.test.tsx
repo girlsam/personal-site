@@ -12,15 +12,6 @@ describe("Contact", () => {
     expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
   });
 
-  it("links to GitHub and LinkedIn", () => {
-    render(<Contact />);
-    expect(screen.getByRole("link", { name: /github/i })).toHaveAttribute("href", social.github);
-    expect(screen.getByRole("link", { name: /linkedin/i })).toHaveAttribute(
-      "href",
-      social.linkedin,
-    );
-  });
-
   it("has no accessibility violations", async () => {
     const { container } = render(<Contact />);
     expect(await checkA11y(container)).toHaveNoViolations();
