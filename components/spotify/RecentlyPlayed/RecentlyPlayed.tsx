@@ -83,9 +83,13 @@ export function RecentlyPlayed() {
               href={track.songUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${track.title} by ${track.artist}${track.isPlaying ? ", now playing" : ""}`}
               className="group flex flex-col gap-2"
             >
-              <span className="relative block aspect-square overflow-hidden rounded-xl border border-border bg-surface">
+              <span
+                aria-hidden="true"
+                className="relative block aspect-square overflow-hidden rounded-xl border border-border bg-surface"
+              >
                 {track.albumImageUrl && (
                   // eslint-disable-next-line @next/next/no-img-element -- dynamic external album art (Spotify CDN)
                   <img
@@ -103,7 +107,7 @@ export function RecentlyPlayed() {
                   <ArrowUpRightIcon className="size-3.5" />
                 </span>
               </span>
-              <span className="flex flex-col">
+              <span aria-hidden="true" className="flex flex-col">
                 <span className="truncate font-medium text-foreground">{track.title}</span>
                 <span className="truncate text-sm text-muted">{track.artist}</span>
               </span>
