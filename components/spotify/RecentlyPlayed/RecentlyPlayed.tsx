@@ -47,7 +47,7 @@ export function RecentlyPlayed() {
 
   return (
     <div className="w-full max-w-2xl">
-      <div className="mb-3 flex items-center justify-between">
+      <div className="mb-5 flex items-center justify-between">
         <p className="flex items-center gap-1.5 font-mono text-sm text-muted">
           <SpotifyIcon className="size-4 text-[#1DB954]" />
           On my headphones
@@ -75,7 +75,7 @@ export function RecentlyPlayed() {
       <ul
         ref={scroller}
         aria-label="Recently played tracks"
-        className="flex snap-x snap-mandatory [scrollbar-width:none] gap-3 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden"
+        className="-m-2 flex snap-x snap-mandatory scroll-p-2 [scrollbar-width:none] gap-3 overflow-x-auto p-2 [&::-webkit-scrollbar]:hidden"
       >
         {tracks.map((track, i) => (
           <li key={`${track.songUrl}-${i}`} className="w-40 shrink-0 snap-start">
@@ -84,11 +84,11 @@ export function RecentlyPlayed() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${track.title} by ${track.artist}${track.isPlaying ? ", now playing" : ""}`}
-              className="group flex flex-col gap-2"
+              className="group flex flex-col gap-2 focus-visible:outline-none"
             >
               <span
                 aria-hidden="true"
-                className="relative block aspect-square overflow-hidden rounded-xl border border-border bg-surface"
+                className="relative block aspect-square overflow-hidden rounded-xl border border-border bg-surface group-focus-visible:ring-2 group-focus-visible:ring-ring group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-background"
               >
                 {track.albumImageUrl && (
                   // eslint-disable-next-line @next/next/no-img-element -- dynamic external album art (Spotify CDN)
