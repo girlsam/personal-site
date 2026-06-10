@@ -15,6 +15,7 @@ export const nav = [
 export const social = {
   github: "https://github.com/girlsam",
   linkedin: "https://www.linkedin.com/in/samgoldsmith",
+  repo: "https://github.com/girlsam/personal-site",
 } as const;
 
 export const hero = {
